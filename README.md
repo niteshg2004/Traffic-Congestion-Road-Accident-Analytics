@@ -99,29 +99,3 @@ trend, hotspot, risk, infrastructure and model-comparison tabs.
 ## 10. Expected outputs
 After a successful run `results/tables/` contains the files in the table above, plus `schema_clean.txt`,
 `model_features.json` (used vs excluded features) and ~15 other CSVs. The terminal ends with `DONE in X min`.
-
-## 11. Troubleshooting
-| Problem | Fix |
-|---|---|
-| `No CSV file found in data/raw` | Put the dataset CSV in `data/raw/` (see `data/README.md`) |
-| `java: command not found` / `JAVA_HOME` errors | Install Java 11/17, reopen terminal |
-| `OutOfMemoryError` / very slow | `SPARK_DRIVER_MEMORY=8g`; for the model use `TRAIN_SAMPLE_FRACTION=0.3` and/or `RF_NUM_TREES=30` |
-| Windows: `winutils` / `HADOOP_HOME` warnings | Usually harmless. If model saving fails the metrics are still saved (warning shown) |
-| `Required column(s) missing` | Wrong file – use the Moosavi *US Accidents* CSV |
-| Python 3.12 + `distutils` error | Use Python 3.10/3.11 as required |
-| Dashboard says "Results not found" | Run the pipeline first (Step B) |
-| Port 4040/8501 busy | Spark/Streamlit pick the next port automatically; check the terminal |
-
-## 12. Viva explanation (60-second version)
-"I built a Spark pipeline for the US Accidents dataset. PySpark cleans the data and writes Parquet; Spark SQL answers when/where/
-weather questions; a 1 km grid finds hotspots; a weighted score ranks risk; and an MLlib Random Forest predicts severe vs non-severe
-accidents using only features known at report time, with class weights because the data is imbalanced and with F1/recall/confusion matrix
-instead of accuracy alone. Spark saves small results that a Streamlit/Plotly dashboard displays." More: `docs/viva_questions.md`.
-
-## 13. CA3 rubric mapping
-See `docs/rubric_mapping.md` (Problem Identification, Tool Usage, Data Processing, Visualization, Innovation, Report – 2 marks each).
-
-## 14. Checklist before submission (deadline 11 Oct 2026, 08:00)
-1. Run the full pipeline → 2. fill every `[RESULT TO BE GENERATED AFTER RUNNING PIPELINE]` in `report/project_report.md`
-from `results/tables/` → 3. capture screenshots (`docs/screenshots_checklist.md`) → 4. rehearse `docs/viva_questions.md`.
-# Traffic-Congestion-Road-Accident-Analytics
