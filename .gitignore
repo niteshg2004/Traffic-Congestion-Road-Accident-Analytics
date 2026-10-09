@@ -1,0 +1,25 @@
+# Environments / caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+# Spark artefacts
+spark-warehouse/
+metastore_db/
+derby.log
+# Large data (never commit the full dataset)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/processed_sample/
+# Generated results (re-created by the pipeline)
+results/tables/*
+results/models/*
+results/figures/*
+!results/tables/.gitkeep
+!results/models/.gitkeep
+!results/figures/.gitkeep
+results_sample/
