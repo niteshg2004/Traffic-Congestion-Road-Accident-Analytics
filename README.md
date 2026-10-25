@@ -96,6 +96,18 @@ Open http://localhost:8501. The dashboard reads `results/tables/` and **never st
 It provides state, city, severity, weather, year, month, hour and day/night filters, plus
 trend, hotspot, risk, infrastructure and model-comparison tabs.
 
+### Run with Docker
+The Docker image runs the dashboard against the precomputed results included in this
+repository. It does not run the Spark pipeline.
+
+```bash
+docker build -t traffic-accident-dashboard .
+docker run --rm -p 8501:8501 traffic-accident-dashboard
+```
+
+Open http://localhost:8501 after the container starts. To use newly generated results,
+rebuild the image after running the pipeline.
+
 ## 10. Expected outputs
 After a successful run `results/tables/` contains the files in the table above, plus `schema_clean.txt`,
 `model_features.json` (used vs excluded features) and ~15 other CSVs. The terminal ends with `DONE in X min`.
