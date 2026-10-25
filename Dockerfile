@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY dashboard/ dashboard/
 COPY src/ src/
 COPY results/ results/
-COPY results_sample/ results_sample/
 
 EXPOSE 8501
 
