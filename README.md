@@ -1,5 +1,5 @@
 # Traffic Congestion and Road Accident Analytics Using Apache Spark
-**Big Data Analytics – CA3 | B.Tech CSE, Batch 2023-27, Semester VII**
+** | B.Tech CSE, Batch 2023-27, Semester VII**
 
 ## 1. Project overview
 A Big Data pipeline that analyses millions of US road-accident records with **PySpark**, finds where/when accidents occur,
